@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.pttor.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.pttor.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.pttor.com">
+      <s:element name="CurrentOilPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentOilPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentOilPriceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentOilPriceProvincial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentOilPriceProvincialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentOilPriceProvincialResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOilPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DD" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="MM" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="YYYY" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOilPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOilPriceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOilPriceProvincial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DD" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="MM" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="YYYY" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOilPriceProvincialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOilPriceProvincialResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CurrentOilPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentOilPrice" />
+  </wsdl:message>
+  <wsdl:message name="CurrentOilPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentOilPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentOilPriceProvincialSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentOilPriceProvincial" />
+  </wsdl:message>
+  <wsdl:message name="CurrentOilPriceProvincialSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentOilPriceProvincialResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOilPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOilPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetOilPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOilPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOilPriceProvincialSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOilPriceProvincial" />
+  </wsdl:message>
+  <wsdl:message name="GetOilPriceProvincialSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOilPriceProvincialResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OilPriceSoap">
+    <wsdl:operation name="CurrentOilPrice">
+      <wsdl:input message="tns:CurrentOilPriceSoapIn" />
+      <wsdl:output message="tns:CurrentOilPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentOilPriceProvincial">
+      <wsdl:input message="tns:CurrentOilPriceProvincialSoapIn" />
+      <wsdl:output message="tns:CurrentOilPriceProvincialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOilPrice">
+      <wsdl:input message="tns:GetOilPriceSoapIn" />
+      <wsdl:output message="tns:GetOilPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOilPriceProvincial">
+      <wsdl:input message="tns:GetOilPriceProvincialSoapIn" />
+      <wsdl:output message="tns:GetOilPriceProvincialSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OilPriceSoap" type="tns:OilPriceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CurrentOilPrice">
+      <soap:operation soapAction="http://www.pttor.com/CurrentOilPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentOilPriceProvincial">
+      <soap:operation soapAction="http://www.pttor.com/CurrentOilPriceProvincial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOilPrice">
+      <soap:operation soapAction="http://www.pttor.com/GetOilPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOilPriceProvincial">
+      <soap:operation soapAction="http://www.pttor.com/GetOilPriceProvincial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OilPriceSoap12" type="tns:OilPriceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CurrentOilPrice">
+      <soap12:operation soapAction="http://www.pttor.com/CurrentOilPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentOilPriceProvincial">
+      <soap12:operation soapAction="http://www.pttor.com/CurrentOilPriceProvincial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOilPrice">
+      <soap12:operation soapAction="http://www.pttor.com/GetOilPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOilPriceProvincial">
+      <soap12:operation soapAction="http://www.pttor.com/GetOilPriceProvincial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OilPrice">
+    <wsdl:port name="OilPriceSoap" binding="tns:OilPriceSoap">
+      <soap:address location="https://www1.pttor.com/OilPrice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OilPriceSoap12" binding="tns:OilPriceSoap12">
+      <soap12:address location="https://www1.pttor.com/OilPrice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,49 @@
+﻿.mytable > tbody > tr:nth-child(odd) > td {
+    background: rgba(0,0,0,0.05) !important;
+}
+
+.mygantt .vertical-bar {
+    width: 1px;
+    background: rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+/* Styles from question */
+th.time, td.time {
+    width: 48px;
+}
+
+.gantt-chart {
+    position: relative;
+}
+
+.gantt-line {
+    background: blue;
+    height: 8px;
+}
+
+body {
+    background: #262727;
+}
+
+a {
+    color: #8baac0;
+}
+
+h1, h2 {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin: 150px auto 30px auto;
+    text-align: center;
+}
+
+#timeline, #timelineClock {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}

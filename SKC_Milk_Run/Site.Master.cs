@@ -13,7 +13,13 @@ namespace SKC_Milk_Run
         public string UserId = "";
 
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/AzureLogin.aspx");
+                return;
+            }
+
             if (Session["Username"] == null)
             {
                 Response.Redirect(ResolveUrl("~/Login.aspx"));

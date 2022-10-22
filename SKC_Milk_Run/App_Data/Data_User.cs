@@ -111,10 +111,17 @@ namespace SKC_Milk_Run.App_Data
             sqlCmmd += " WHERE [Username] = N'" + Username + "' AND [Password] = N'" + Password + "'";
             return (this.Fill(sqlCmmd));
         }
-        public DataTable GetUserByUserId(int UserId)
+        public DataTable GetUserByUserId(int UserId) 
         {
             string sqlCmmd = "SELECT COUNT(*) AS CheckLogin FROM [Data_User]";
             sqlCmmd += " WHERE [UserId] = " + UserId.ToString();
+            return (this.Fill(sqlCmmd));
+        }
+
+        public DataTable GetUserByUserLogin(string Username)
+        {
+            string sqlCmmd = "SELECT [UserId], [Username], CONCAT([FirstName], ' '+ [LastName]) AS [FullName], [SupplierCode], [AccessLevel] ,UserLevel , (select [Supplier_Name] from Tbl_Supplier vs where vs.[Supplier_Code] COLLATE DATABASE_DEFAULT  = SupplierCode) as [Supplier_Name] FROM [Data_User]";
+            sqlCmmd += " WHERE [Username] = N'" + Username + "'";
             return (this.Fill(sqlCmmd));
         }
         # endregion;

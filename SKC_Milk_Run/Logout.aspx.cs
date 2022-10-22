@@ -11,6 +11,8 @@ namespace SKC_Milk_Run
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
             Session.Clear();
             Response.Redirect(ResolveUrl("~/Login.aspx"));
         }

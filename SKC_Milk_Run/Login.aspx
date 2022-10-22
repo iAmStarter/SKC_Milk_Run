@@ -60,6 +60,14 @@
                         </div>
                         <!-- /.col -->
                     </div>
+                     <div class="row mt-2">
+                       
+                        <!-- /.col -->
+                        <div class="col">    
+                            <a class="btn btn-primary btn-block" href="AzureLogin.aspx">Log In Azure</a>
+                        </div>
+                        <!-- /.col -->
+                    </div>
                     <div class="row">
                         <div class="col">
                             <asp:Label ID="Labelmsg" runat="server" ForeColor="Red"></asp:Label>

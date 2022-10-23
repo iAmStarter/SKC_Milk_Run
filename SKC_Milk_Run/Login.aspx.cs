@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using SKC_Milk_Run.App_Data;
+using SKC_Milk_Run.AuthModels;
 
 namespace SKC_Milk_Run
 {

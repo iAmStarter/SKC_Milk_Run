@@ -2156,7 +2156,7 @@
     <Compile Include="App_Data\Global_Service.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AuthModels\AzureUserDetail.cs" />
+    <Compile Include="AuthModels\AzureUser.cs" />
     <Compile Include="AzureLogin.aspx.cs">
       <DependentUpon>AzureLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

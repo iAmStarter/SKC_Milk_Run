@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SKC_Milk_Run.AuthModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,12 +15,6 @@ namespace SKC_Milk_Run
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsAuthenticated)
-            {
-                Response.Redirect("~/AzureLogin.aspx");
-                return;
-            }
-
             if (Session["Username"] == null)
             {
                 Response.Redirect(ResolveUrl("~/Login.aspx"));
@@ -28,7 +23,7 @@ namespace SKC_Milk_Run
 
             if (!IsPostBack)
             {
-               
+
                 UserId = Session["UserId"].ToString();
 
                 if (Session["Username"] != null)

@@ -24,26 +24,8 @@ namespace SKC_Milk_Run
             }
             else
             {
-                SetLoginSession(authenticationManager);
                 Response.Redirect("~/Default.aspx");
             }
-        }
-
-        public void SetLoginSession(IAuthenticationManager authenticationManager)
-        {
-            AzureUserDetail azureUserDetail = new AzureUserDetail(authenticationManager);
-
-            Data_User Usr = new Data_User();
-            DataTable GetUser = Usr.GetUserByUserLogin(azureUserDetail.LoginUser);
-            Session["UserId"] = GetUser.Rows[0]["UserId"].ToString();
-            Session["Username"] = GetUser.Rows[0]["Username"].ToString();
-            Session["FullName"] = GetUser.Rows[0]["FullName"].ToString();
-            Session["SupplierCode"] = GetUser.Rows[0]["SupplierCode"].ToString();
-            Session["SupplierName"] = GetUser.Rows[0]["Supplier_Name"].ToString();
-            Session["AccessLevel"] = GetUser.Rows[0]["AccessLevel"].ToString();
-            Session["UserLevel"] = GetUser.Rows[0]["UserLevel"].ToString();
-
-          
         }
     }
 }

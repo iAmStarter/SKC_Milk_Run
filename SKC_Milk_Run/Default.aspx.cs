@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SKC_Milk_Run.App_Data;
+using SKC_Milk_Run.AuthModels;
 
 namespace SKC_Milk_Run
 {
@@ -18,6 +19,14 @@ namespace SKC_Milk_Run
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+
+            if (Request.IsAuthenticated)
+            {
+                AzureUser azureUser = new AzureUser(authenticationManager);
+                azureUser.SetLoginSession(Session);
+            }
 
             if (Session["UserId"] != null)
                 UserId = Session["UserId"].ToString();
